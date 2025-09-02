@@ -28,3 +28,10 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Environment files
+.env
+.env.*.local
+
+# Vite cache
+.vite

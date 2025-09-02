@@ -1,11 +1,42 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="app">
+    <Navigation />
+    <router-view />
+    <Home />
+  </div>
 </template>
 
-<style scoped></style>
+<script>
+import Navigation from './components/Navigation.vue'
+import Card from './components/Card.vue'
+import Home from './views/Home.vue'
+export default {
+  name: 'App',
+  components: {
+    Navigation,
+    Home,
+  },
+}
+</script>
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  background-color: #2e2e2e;
+}
+.container {
+  padding: 0 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+</style>
