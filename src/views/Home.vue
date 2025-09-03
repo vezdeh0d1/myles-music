@@ -51,7 +51,6 @@ export default {
       }
     }
 
-    /* NEW: интерактивная кнопка */
     button {
       margin-top: 12px;
       padding: 10px 18px;
@@ -60,24 +59,22 @@ export default {
       border: 1px solid currentColor;
       border-radius: 2px;
 
-      cursor: pointer; /* курсор-рука */
+      cursor: pointer;
       transition:
         color 0.18s ease,
         border-color 0.18s ease,
         background-color 0.18s ease,
-        transform 0.05s ease; /* лёгкий клик */
+        transform 0.05s ease;
     }
 
-    /* NEW: hover/focus — чуть подсветить */
     button:hover,
     button:focus-visible {
-      background-color: rgba(242, 140, 60, 0.12); /* лёгкая оранжевая вуаль */
+      background-color: rgba(242, 140, 60, 0.12);
       color: #ff9a4d;
       border-color: #ff9a4d;
       outline: none;
     }
 
-    /* NEW: нажата — чуть «утопить» */
     button:active {
       transform: translateY(1px);
     }
