@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home" class="home">
     <section class="hero">
       <div class="hero-text container">
         <h2>MYLES MUSIC</h2>

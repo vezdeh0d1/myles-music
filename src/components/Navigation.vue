@@ -6,10 +6,24 @@
       </div>
 
       <ul class="navigation">
-        <li><router-link class="link" :to="{ name: 'Home' }">Home</router-link></li>
-        <li><router-link class="link" :to="{ name: 'Über mich' }">Über mich</router-link></li>
-        <li><router-link class="link" :to="{ name: 'Galerie' }">Galerie</router-link></li>
-        <li><router-link class="link" :to="{ name: 'Kontakt' }">Kontakt</router-link></li>
+        <li>
+          <router-link class="link" :to="{ name: 'Home' }" @click="scrollToHome">Home</router-link>
+        </li>
+        <li>
+          <router-link class="link" :to="{ name: 'Über mich' }" @click="scrollToUberMich"
+            >Über mich</router-link
+          >
+        </li>
+        <li>
+          <router-link class="link" :to="{ name: 'Galerie' }" @click="scrollToGalerie"
+            >Galerie</router-link
+          >
+        </li>
+        <li>
+          <router-link class="link" :to="{ name: 'Kontakt' }" @click="scrollToKontakt"
+            >Kontakt</router-link
+          >
+        </li>
       </ul>
     </nav>
   </header>
@@ -39,6 +53,22 @@ export default {
         return
       }
       this.scrolledNav = false
+    },
+    scrollToHome() {
+      const el = document.getElementById('home')
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    },
+    scrollToUberMich() {
+      const el = document.getElementById('uber-mich')
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    },
+    scrollToGalerie() {
+      const el = document.getElementById('galerie')
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    },
+    scrollToKontakt() {
+      const el = document.getElementById('kontakt')
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     },
   },
 }
@@ -93,9 +123,11 @@ header nav {
     color 0.2s ease,
     border-color 0.2s ease;
 
+  cursor: pointer;
+
   &:hover {
-    color: #060076;
-    border-color: #060076;
+    color: #5b5897;
+    border-color: #686699;
   }
 }
 
