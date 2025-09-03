@@ -3,6 +3,9 @@
     <Navigation />
     <router-view />
     <Home />
+    <UberMich />
+    <Portfolio />
+    <Kontakt />
   </div>
 </template>
 
@@ -10,11 +13,17 @@
 import Navigation from './components/Navigation.vue'
 import Card from './components/Card.vue'
 import Home from './views/Home.vue'
+import UberMich from './views/UberMich.vue'
+import Portfolio from './views/Portfolio.vue'
+import Kontakt from './views/Kontakt.vue'
 export default {
   name: 'App',
   components: {
     Navigation,
     Home,
+    UberMich,
+    Portfolio,
+    Kontakt,
   },
 }
 </script>
@@ -32,7 +41,7 @@ export default {
 .app {
   min-height: 100vh;
   position: relative;
-  background-color: #2e2e2e;
+  background-color: #000;
 }
 .container {
   padding: 0 20px;
