@@ -4,7 +4,6 @@
       <div class="hero-text container">
         <h2>PORTFOLIO</h2>
         <h3>Professional Electronic Music Experience</h3>
-        <button>JETZT ANFANGEN</button>
       </div>
     </section>
   </div>

@@ -3,8 +3,30 @@
     <section class="hero">
       <div class="hero-text container">
         <h2>ÜBER MICH</h2>
-        <h3>Professional Electronic Music Experience</h3>
-        <button>JETZT ANFANGEN</button>
+        <div class="portrait">
+          <img
+            src="@/assets/professional-portrait.jpg"
+            alt="Professional portrait"
+            loading="lazy"
+          />
+        </div>
+        <h3>
+          Mit über zehn Jahren Erfahrung in der elektronischen Musikszene verstehe ich es, durch
+          präzise Musikauswahl und nahtlose Übergänge eine einzigartige Atmosphäre zu schaffen. Mein
+          Fokus liegt auf der perfekten Balance zwischen energiegeladenen Beats und melodischen
+          Klanglandschaften.
+        </h3>
+        <h3>
+          Von eleganten Corporate Events bis hin zu ausgelassenen Clubnächten – ich passe meinen
+          Sound individuell an jeden Anlass an. Dabei setze ich auf eine Kombination aus klassischen
+          House-Elementen und zeitgenössischen Electronic-Produktionen, die sowohl Kenner als auch
+          ein breites Publikum begeistern.
+        </h3>
+        <h3>
+          Professionalität, Zuverlässigkeit und die Leidenschaft für außergewöhnliche Musik stehen
+          im Mittelpunkt meiner Arbeit. Lassen Sie uns gemeinsam Ihr Event zu einem unvergesslichen
+          Erlebnis machen.
+        </h3>
       </div>
     </section>
   </div>
@@ -18,49 +40,64 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
-  min-height: 100vh;
-  position: relative;
+#uber-mich {
+  scroll-margin-top: 72px;
 }
 
 .hero {
   background-color: #202020;
-  height: 100vh;
-  /* Rechter und linker Rand in Prozent. (10%)  */
-  margin: 3vw 20vw 0 5vw; /* top | right | bottom | left */
-  width: auto;
-  /* border-radius: 8px; */
-}
 
-.hero {
+  min-height: 100vh;
+
+  margin-top: clamp(12px, 3vw, 48px);
+  margin-right: clamp(24px, 20vw, 320px);
+  margin-bottom: 0;
+  margin-left: clamp(12px, 5vw, 160px);
+
+  /* Inner content */
   .hero-text {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding-top: clamp(16px, 5vh, 120px);
     align-items: center;
     text-align: center;
+    color: #d9d9d9;
 
-    color: #fff;
+    width: 100%;
+    max-width: 68ch;
+    padding-inline: 10;
 
+    gap: clamp(12px, 2.2vw, 28px);
+
+    /* Titel */
     h2 {
-      font-size: 50px;
-      @media (min-width: 550px) {
-        font-size: 80px;
-      }
+      margin: 0;
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.1;
     }
 
-    hr:nth-child(2) {
-      max-width: 365px;
-      margin-bottom: 16px;
+    /* text */
+
+    h3 {
+      margin: 0;
+      font-weight: 400;
+      line-height: 1.6;
+      font-size: clamp(14px, 1.6vw, 18px);
     }
-    hr:nth-child(4) {
-      height: 6px;
-      background-color: #fff;
-      border: none;
-      max-width: 85px;
-      margin-top: 16px;
-    }
+  }
+
+  .portrait {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0 4px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  .portrait img {
+    width: clamp(120px, 22vw, 260px);
+    height: auto;
+    display: block;
   }
 }
 </style>
