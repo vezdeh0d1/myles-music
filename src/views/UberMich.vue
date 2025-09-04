@@ -3,13 +3,15 @@
     <section class="hero">
       <div class="hero-text container">
         <h2>ÜBER MICH</h2>
-        <div class="portrait">
+
+        <div class="portrait" role="button" tabindex="0" @click="openLightbox">
           <img
             src="@/assets/professional-portrait.jpg"
             alt="Professional portrait"
             loading="lazy"
           />
         </div>
+
         <h3>
           Mit über zehn Jahren Erfahrung in der elektronischen Musikszene verstehe ich es, durch
           präzise Musikauswahl und nahtlose Übergänge eine einzigartige Atmosphäre zu schaffen. Mein
@@ -29,13 +31,41 @@
         </h3>
       </div>
     </section>
+
+    <div v-if="lightbox" class="lightbox" @click="closeLightbox">
+      <img src="@/assets/professional-portrait.jpg" alt="Professional portrait – big" @click.stop />
+      <button class="lightbox-close" @click.stop="closeLightbox" aria-label="Close">×</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'UberMich',
-  components: {},
+  data: () => ({ lightbox: false }),
+
+  methods: {
+    openLightbox() {
+      if (this.lightbox) return
+      this.lightbox = true
+      document.body.style.overflow = 'hidden'
+      window.addEventListener('keydown', this.onEsc)
+    },
+    closeLightbox() {
+      if (!this.lightbox) return
+      this.lightbox = false
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', this.onEsc)
+    },
+    onEsc(e) {
+      if (e.key === 'Escape') this.closeLightbox()
+    },
+  },
+
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.onEsc)
+    document.body.style.overflow = ''
+  },
 }
 </script>
 
@@ -46,15 +76,12 @@ export default {
 
 .hero {
   background-color: #202020;
-
   min-height: 100vh;
 
   margin-top: clamp(12px, 3vw, 48px);
   margin-right: clamp(24px, 20vw, 320px);
-  margin-bottom: 0;
   margin-left: clamp(12px, 5vw, 160px);
 
-  /* Inner content */
   .hero-text {
     height: 100%;
     display: flex;
@@ -63,27 +90,17 @@ export default {
     align-items: center;
     text-align: center;
     color: #d9d9d9;
-
     width: 100%;
     max-width: 68ch;
-    padding-inline: 10;
-
     gap: clamp(12px, 2.2vw, 28px);
 
-    /* Titel */
     h2 {
       margin: 0;
       font-size: clamp(36px, 6vw, 56px);
       line-height: 1.1;
     }
-
-    /* text */
-
-    h3 {
-      margin: 0;
-      font-weight: 400;
-      line-height: 1.6;
-      font-size: clamp(14px, 1.6vw, 18px);
+    h3:last-of-type {
+      margin-bottom: clamp(24px, 8vh, 120px);
     }
   }
 
@@ -93,11 +110,44 @@ export default {
     margin: 8px 0 4px;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    transition: transform 0.18s ease;
+  }
+  .portrait:hover {
+    transform: translateY(-6px);
   }
   .portrait img {
     width: clamp(120px, 22vw, 260px);
     height: auto;
     display: block;
+    border-radius: 12px;
   }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vw;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  font-size: 28px;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 </style>
