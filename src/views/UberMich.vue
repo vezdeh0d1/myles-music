@@ -32,7 +32,14 @@
       </div>
     </section>
 
-    <div v-if="lightbox" class="lightbox" @click="closeLightbox">
+    <div
+      v-if="lightbox"
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Foto in voller Größe"
+      @click="closeLightbox"
+    >
       <img src="@/assets/professional-portrait.jpg" alt="Professional portrait – big" @click.stop />
       <button class="lightbox-close" @click.stop="closeLightbox" aria-label="Close">×</button>
     </div>
