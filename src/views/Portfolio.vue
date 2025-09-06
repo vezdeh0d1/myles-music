@@ -217,12 +217,4 @@ export default {
     max-height: 90svh;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .portrait {
-    transition: none;
-  }
-  .portrait:hover {
-    transform: none;
-  }
-}
 </style>
