@@ -1,34 +1,46 @@
 <template>
   <div id="galerie" class="Portfolio">
     <section class="hero">
-      <div class="hero-text container">
+      <div class="hero-text">
         <h2>PORTFOLIO</h2>
 
         <div class="gallery">
           <div
-            v-for="(img, i) in images"
+            v-for="(item, i) in items"
             :key="i"
             class="portrait"
             role="button"
             tabindex="0"
-            @click="openLightbox(img.src, img.alt)"
-            @keydown.enter="openLightbox(img.src, img.alt)"
+            @click="openLightbox(item)"
           >
-            <img :src="img.src" :alt="img.alt" loading="lazy" decoding="async" />
+            <div class="thumb">
+              <img :src="item.poster" :alt="item.alt" loading="lazy" decoding="async" />
+              <span class="play-badge">▶</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Lightbox -->
     <div
       v-if="lightbox"
       class="lightbox"
       role="dialog"
       aria-modal="true"
-      :aria-label="selectedAlt || 'Bild in voller Größe'"
+      :aria-label="selected?.alt || 'Full size Video'"
       @click="closeLightbox"
     >
-      <img :src="selectedSrc" :alt="selectedAlt || 'Bild – groß'" @click.stop />
+      <video
+        v-if="selected"
+        ref="player"
+        :src="selected.src"
+        controls
+        autoplay
+        playsinline
+        class="player"
+        @click.stop
+      ></video>
       <button class="lightbox-close" @click.stop="closeLightbox" aria-label="Close">×</button>
     </div>
   </div>
@@ -39,26 +51,47 @@ export default {
   name: 'Portfolio',
   data: () => ({
     lightbox: false,
-    selectedSrc: null,
-    selectedAlt: '',
-    images: [
+    selected: null,
+    _lastFocus: null,
+    items: [
       {
-        src: new URL('../assets/professional-portrait.jpg', import.meta.url).href,
-        alt: 'Professional portrait',
+        src: new URL('../assets/vid1.mp4', import.meta.url).href,
+        poster: new URL('../assets/poster1.jpg', import.meta.url).href,
+        alt: 'Clip 1',
       },
-      { src: new URL('../assets/pic1.jpg', import.meta.url).href, alt: 'pic1' },
-      { src: new URL('../assets/pic2.jpg', import.meta.url).href, alt: 'pic2' },
-      { src: new URL('../assets/pic3.jpg', import.meta.url).href, alt: 'pic3' },
-      { src: new URL('../assets/pic4.jpg', import.meta.url).href, alt: 'pic4' },
-      { src: new URL('../assets/pic5.jpg', import.meta.url).href, alt: 'pic5' },
+      {
+        src: new URL('../assets/vid2.mp4', import.meta.url).href,
+        poster: new URL('../assets/poster2.jpg', import.meta.url).href,
+        alt: 'Clip 2',
+      },
+      {
+        src: new URL('../assets/vid3.mp4', import.meta.url).href,
+        poster: new URL('../assets/poster3.jpg', import.meta.url).href,
+        alt: 'Clip 3',
+      },
+      {
+        src: new URL('../assets/vid4.mp4', import.meta.url).href,
+        poster: new URL('../assets/poster4.jpg', import.meta.url).href,
+        alt: 'Clip 4',
+      },
+      {
+        src: new URL('../assets/vid5.mp4', import.meta.url).href,
+        poster: new URL('../assets/poster5.jpg', import.meta.url).href,
+        alt: 'Clip 5',
+      },
+      {
+        src: new URL('../assets/vid6.mp4', import.meta.url).href,
+        poster: new URL('../assets/poster6.jpg', import.meta.url).href,
+        alt: 'Clip 6',
+      },
     ],
   }),
 
   methods: {
-    openLightbox(src, alt) {
+    openLightbox(item) {
       if (this.lightbox) return
-      this.selectedSrc = src
-      this.selectedAlt = alt || ''
+      this._lastFocus = document.activeElement
+      this.selected = item
       this.lightbox = true
       document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', this.onEsc)
@@ -66,8 +99,7 @@ export default {
     closeLightbox() {
       if (!this.lightbox) return
       this.lightbox = false
-      this.selectedSrc = null
-      this.selectedAlt = ''
+      this.selected = null
       document.body.style.overflow = ''
       window.removeEventListener('keydown', this.onEsc)
     },
@@ -84,13 +116,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#galerie {
-  scroll-margin-top: 72px;
-}
 .hero {
-  background-color: #000000;
+  background-color: #0e0e0e;
   min-height: 100vh;
-
   margin-top: clamp(12px, 3vw, 48px);
   margin-right: clamp(24px, 20vw, 320px);
   margin-left: clamp(12px, 5vw, 160px);
@@ -122,8 +150,6 @@ export default {
   }
 
   .portrait {
-    display: flex;
-    justify-content: center;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.25);
     cursor: pointer;
@@ -134,11 +160,25 @@ export default {
     transform: translateY(-6px);
   }
 
-  .portrait img {
+  .thumb {
+    position: relative;
+  }
+  .thumb img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 12px;
+  }
+  .play-badge {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
   }
 }
 
@@ -146,17 +186,17 @@ export default {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4vw;
 }
-.lightbox img {
+.player {
   max-width: 90vw;
   max-height: 90vh;
-  object-fit: contain;
   border-radius: 12px;
+  background: #0e0e0e; /* на случай чёрных полей у видео */
 }
 .lightbox-close {
   position: fixed;
@@ -167,5 +207,22 @@ export default {
   background: transparent;
   border: 0;
   cursor: pointer;
+}
+
+@supports (height: 100svh) {
+  .hero {
+    min-height: 100svh;
+  }
+  .player {
+    max-height: 90svh;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portrait {
+    transition: none;
+  }
+  .portrait:hover {
+    transform: none;
+  }
 }
 </style>

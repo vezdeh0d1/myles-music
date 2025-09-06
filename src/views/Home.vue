@@ -14,7 +14,7 @@
 export default {
   name: 'Home',
   methods: {
-    // Sanfter Scroll zum Kontakt-Block
+    // Scroll to Kontakt-Block
     scrollToKontakt() {
       const el = document.getElementById('kontakt')
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -42,7 +42,7 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: #d9d9d9;
 
     h2 {
       font-size: 50px;

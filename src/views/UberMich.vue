@@ -37,7 +37,7 @@
       class="lightbox"
       role="dialog"
       aria-modal="true"
-      aria-label="Foto in voller Größe"
+      aria-label="Full size photo"
       @click="closeLightbox"
     >
       <img src="@/assets/professional-portrait.jpg" alt="Professional portrait – big" @click.stop />
