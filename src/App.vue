@@ -1,7 +1,6 @@
 <template>
   <div class="app">
     <Navigation />
-    <router-view />
     <Home />
     <UberMich />
     <Portfolio />

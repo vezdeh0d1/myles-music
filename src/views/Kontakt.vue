@@ -8,36 +8,17 @@
         <form class="form" @submit.prevent="notification">
           <div class="field">
             <label for="name">NAME</label>
-            <input
-              id="name"
-              v-model="form.name"
-              type="text"
-              autocomplete="name"
-              placeholder="Ihr Name"
-            />
+            <input id="name" v-model="form.name" type="text" autocomplete="name" />
           </div>
 
           <div class="field">
             <label for="email">E-MAIL</label>
-            <input
-              id="email"
-              v-model="form.email"
-              type="email"
-              autocomplete="email"
-              placeholder="name@example.com"
-            />
+            <input id="email" v-model="form.email" type="email" autocomplete="email" />
           </div>
 
           <div class="field">
             <label for="tel">TELEFON</label>
-            <input
-              id="tel"
-              v-model="form.tel"
-              type="tel"
-              inputmode="tel"
-              autocomplete="tel"
-              placeholder="+49 …"
-            />
+            <input id="tel" v-model="form.tel" type="tel" inputmode="tel" autocomplete="tel" />
           </div>
 
           <div class="field">
@@ -46,7 +27,7 @@
               id="details"
               v-model="form.details"
               type="text"
-              placeholder="Art, Ort, Gästezahl …"
+              placeholder="Art de Veranstaltung"
             />
           </div>
 
@@ -61,7 +42,7 @@
               id="msg"
               v-model="form.message"
               rows="4"
-              placeholder="Ihre Nachricht"
+              placeholder="Beschreibung Sie ihre Veranstaltungen für das Event..."
             ></textarea>
           </div>
 
@@ -114,6 +95,7 @@ export default {
 .hero {
   background-color: #202020;
   min-height: 100vh;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 
   margin-top: clamp(12px, 3vw, 48px);
   margin-right: clamp(24px, 20vw, 320px);

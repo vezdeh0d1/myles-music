@@ -208,13 +208,4 @@ export default {
   border: 0;
   cursor: pointer;
 }
-
-@supports (height: 100svh) {
-  .hero {
-    min-height: 100svh;
-  }
-  .player {
-    max-height: 90svh;
-  }
-}
 </style>

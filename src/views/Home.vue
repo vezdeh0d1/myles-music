@@ -1,7 +1,7 @@
 <template>
-  <div id="home" class="home">
+  <div id="home">
     <section class="hero">
-      <div class="hero-text container">
+      <div class="hero-text">
         <h2>MYLES MUSIC</h2>
         <h3>Professional Electronic Music Experience</h3>
         <button type="button" @click="scrollToKontakt">JETZT ANFRAGEN</button>
@@ -24,19 +24,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
-  min-height: 100vh;
-  position: relative;
-}
-
 .hero {
   background-color: #202020;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 10vw;
-  width: auto;
 
   .hero-text {
-    height: 100%;
+    min-height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,20 +39,23 @@ export default {
     color: #d9d9d9;
 
     h2 {
-      font-size: 50px;
-      @media (min-width: 550px) {
-        font-size: 80px;
-      }
+      margin: 0;
+      font-size: 60px;
+    }
+
+    h3 {
+      margin: 0;
+      font-weight: 400;
     }
 
     button {
-      margin-top: 12px;
+      display: block;
+      margin: 12px auto 12px;
       padding: 10px 18px;
       background: transparent;
       color: #f28c3c;
       border: 1px solid currentColor;
       border-radius: 2px;
-
       cursor: pointer;
       transition:
         color 0.18s ease,

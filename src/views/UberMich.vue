@@ -12,23 +12,23 @@
           />
         </div>
 
-        <h3>
+        <p>
           Mit über zehn Jahren Erfahrung in der elektronischen Musikszene verstehe ich es, durch
           präzise Musikauswahl und nahtlose Übergänge eine einzigartige Atmosphäre zu schaffen. Mein
           Fokus liegt auf der perfekten Balance zwischen energiegeladenen Beats und melodischen
           Klanglandschaften.
-        </h3>
-        <h3>
+        </p>
+        <p>
           Von eleganten Corporate Events bis hin zu ausgelassenen Clubnächten – ich passe meinen
           Sound individuell an jeden Anlass an. Dabei setze ich auf eine Kombination aus klassischen
           House-Elementen und zeitgenössischen Electronic-Produktionen, die sowohl Kenner als auch
           ein breites Publikum begeistern.
-        </h3>
-        <h3>
+        </p>
+        <p>
           Professionalität, Zuverlässigkeit und die Leidenschaft für außergewöhnliche Musik stehen
           im Mittelpunkt meiner Arbeit. Lassen Sie uns gemeinsam Ihr Event zu einem unvergesslichen
           Erlebnis machen.
-        </h3>
+        </p>
       </div>
     </section>
 
@@ -84,6 +84,7 @@ export default {
 .hero {
   background-color: #202020;
   min-height: 100vh;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 
   margin-top: clamp(12px, 3vw, 48px);
   margin-right: clamp(24px, 20vw, 320px);
@@ -106,7 +107,7 @@ export default {
       font-size: clamp(36px, 6vw, 56px);
       line-height: 1.1;
     }
-    h3:last-of-type {
+    p:last-of-type {
       margin-bottom: clamp(24px, 8vh, 120px);
     }
   }
@@ -114,7 +115,6 @@ export default {
   .portrait {
     display: flex;
     justify-content: center;
-    margin: 8px 0 4px;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.25);
     cursor: pointer;
