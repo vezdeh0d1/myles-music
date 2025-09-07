@@ -193,7 +193,7 @@ export default {
 
     button {
       display: block;
-      margin: 12px auto 0; /* top | left/right(auto) | bottom */
+      margin: 12px auto 20px; /* top | left/right(auto) | bottom */
       padding: 10px 18px;
       background: transparent;
       color: #f28c3c;

@@ -6,16 +6,17 @@
     <UberMich />
     <Portfolio />
     <Kontakt />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Navigation from './components/Navigation.vue'
-import Card from './components/Card.vue'
 import Home from './views/Home.vue'
 import UberMich from './views/UberMich.vue'
 import Portfolio from './views/Portfolio.vue'
 import Kontakt from './views/Kontakt.vue'
+import Footer from './views/Footer.vue'
 export default {
   name: 'App',
   components: {
@@ -24,6 +25,7 @@ export default {
     UberMich,
     Portfolio,
     Kontakt,
+    Footer,
   },
 }
 </script>

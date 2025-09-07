@@ -196,7 +196,7 @@ export default {
   max-width: 90vw;
   max-height: 90vh;
   border-radius: 12px;
-  background: #0e0e0e; /* на случай чёрных полей у видео */
+  background: #0e0e0e;
 }
 .lightbox-close {
   position: fixed;
