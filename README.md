@@ -1,35 +1,58 @@
-# MYLES_MUSIC
+# MYLES MUSIC
 
-This template should help get you started developing with Vue 3 in Vite.
+**Myles Music** is a minimalistic one-page portfolio website for a professional electronic music artist.  
+Built with **Vue 3 + Vite**, the site combines a clean, modern design with a dark aesthetic — showcasing the artist’s background, gallery, and contact form for booking requests.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Live Overview
 
-## Customize configuration
+Sections included:
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **Home** — landing hero with title and CTA button
+- **About Me** — short bio and introduction
+- **Gallery** — photo & video impressions
+- **Contact** — event inquiry form
+
+---
+
+## Tech Stack
+
+- [Vue 3](https://vuejs.org/) (Composition API)
+- [Vite](https://vite.dev/) for fast development
+- [CSS3 / Flexbox] for layout
+- [ESLint](https://eslint.org/) for code quality
+
+---
+
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="./screenshots/home.png" alt="Home — Myles Music" width="400"/></td>
+    <td><img src="./screenshots/about.png" alt="About — Myles Music" width="400"/></td>
+  </tr>
+  <tr>
+    <td><img src="./screenshots/gallery.png" alt="Gallery — Myles Music" width="400"/></td>
+    <td><img src="./screenshots/contact.png" alt="Contact — Myles Music" width="400"/></td>
+  </tr>
+  
+</table>
+
+---
 
 ## Project Setup
 
-```sh
+```bash
+# install dependencies
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# compile and hot-reload for development
 npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
+# compile and minify for production
 npm run build
-```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
+# lint the code
 npm run lint
 ```
